@@ -1,0 +1,40 @@
+﻿@model IEnumerable<UniversityMS_CRUD_ASP.NET_MVC.EF.Student>
+
+@{
+    ViewBag.Title = "StudentList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StudentList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.student_cgpa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.student_cgpa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.student_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.student_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.student_id })
+        </td>
+    </tr>
+}
+
+</table>
